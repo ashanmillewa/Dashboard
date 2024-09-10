@@ -1,38 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
-import Loader from './common/Loader';
-import ECommerce from './pages/Dashboard/ECommerce';
-import DefaultLayout from './layout/DefaultLayout';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(true);
-  const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
 
-  return loading ? (
-    <Loader />
-  ) : (
-    <DefaultLayout>
-      <Routes>
-        <Route
-          index
-          element={
-            <>
-              <ECommerce />
-            </>
-          }
-        />
-      </Routes>
-    </DefaultLayout>
-  );
+  return (
+     <Routes>
+      <Route
+        index
+        element={
+          <>
+            <Dashboard />
+          </>
+        }
+      />
+    </Routes>
+   );
 }
 
 export default App;
