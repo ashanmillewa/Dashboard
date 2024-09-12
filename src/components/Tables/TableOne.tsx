@@ -56,7 +56,8 @@ const TableOne = () => {
       </h4>
 
       <div className="flex flex-col">
-        <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
+        {/* Table Header */}
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-x-4 gap-y-2 rounded-sm bg-gray-2 dark:bg-meta-4">
           <div className="p-2.5 xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
               Source
@@ -67,7 +68,7 @@ const TableOne = () => {
               Visitors
             </h5>
           </div>
-          <div className="p-2.5 text-center xl:p-5">
+          <div className="hidden p-2.5 text-center sm:block xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
               Revenues
             </h5>
@@ -84,18 +85,15 @@ const TableOne = () => {
           </div>
         </div>
 
-        {brandData.map((brand, key) => (
+        {/* Table Rows */}
+        {brandData.map((brand, index) => (
           <div
-            className={`grid grid-cols-3 sm:grid-cols-5 ${
-              key === brandData.length - 1
-                ? ''
-                : 'border-b border-stroke dark:border-strokedark'
-            }`}
-            key={key}
+            className={`grid grid-cols-2 sm:grid-cols-5 gap-x-4 gap-y-2 ${index === brandData.length - 1 ? '' : 'border-b border-stroke dark:border-strokedark'}`}
+            key={index}
           >
             <div className="flex items-center gap-3 p-2.5 xl:p-5">
-              <div className="flex-shrink-0">
-                <img src={brand.logo} alt="Brand" />
+              <div className="flex-shrink-0 w-10 h-10">
+                <img src={brand.logo} alt={brand.name} className="w-full h-full object-contain" />
               </div>
               <p className="hidden text-black dark:text-white sm:block">
                 {brand.name}
@@ -106,7 +104,7 @@ const TableOne = () => {
               <p className="text-black dark:text-white">{brand.visitors}K</p>
             </div>
 
-            <div className="flex items-center justify-center p-2.5 xl:p-5">
+            <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
               <p className="text-meta-3">${brand.revenues}</p>
             </div>
 

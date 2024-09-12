@@ -6,8 +6,9 @@ import TableOne from '../../components/Tables/TableOne';
 const Dashboard: React.FC = () => {
   return (
     <>
-      <div className="p-40 -mt-25">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+      <div className="p-4 md:p-6 lg:p-8 xl:p-10">
+        {/* Grid for cards */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4 xl:gap-7.5">
           <CardDataStats
             title="Total views"
             total="$3.456K"
@@ -15,7 +16,7 @@ const Dashboard: React.FC = () => {
             levelUp
           >
             <svg
-              className="fill-primary dark:fill-white"
+              className="fill-primary "
               width="22"
               height="16"
               viewBox="0 0 22 16"
@@ -34,12 +35,12 @@ const Dashboard: React.FC = () => {
           </CardDataStats>
           <CardDataStats
             title="Total Profit"
-            total="$45,2K"
+            total="$45.2K"
             rate="4.35%"
             levelUp
           >
             <svg
-              className="fill-primary dark:fill-white"
+              className="fill-primary "
               width="20"
               height="22"
               viewBox="0 0 20 22"
@@ -67,7 +68,7 @@ const Dashboard: React.FC = () => {
             levelUp
           >
             <svg
-              className="fill-primary dark:fill-white"
+              className="fill-primary "
               width="22"
               height="22"
               viewBox="0 0 22 22"
@@ -91,7 +92,7 @@ const Dashboard: React.FC = () => {
             levelDown
           >
             <svg
-              className="fill-primary dark:fill-white"
+              className="fill-primary "
               width="22"
               height="18"
               viewBox="0 0 22 18"
@@ -114,11 +115,13 @@ const Dashboard: React.FC = () => {
           </CardDataStats>
         </div>
 
-        <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-          <div className="col-span-12 xl:col-span-8">
+        <div className="mt-4 md:mt-6 lg:mt-8 xl:mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="col-span-1 md:col-span-2 lg:col-span-2 xl:col-span-3">
             <TableOne />
           </div>
-          <ChatCard />
+          <div className="col-span-1 md:col-span-2 lg:col-span-1 xl:col-span-1">
+            <ChatCard />
+          </div>
         </div>
       </div>
     </>
